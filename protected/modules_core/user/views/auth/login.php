@@ -4,7 +4,7 @@
     	source: function (request, response) {
         //    var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
             $.ajax({
-                url: "/intranet2/index.php?r=user/auth/getEmails",
+                url: "/intranet/index.php?r=user/auth/getEmails",
                 dataType: "json",
                 data: {term: request.term},
                 method: 'get',
