@@ -40,6 +40,30 @@ class AuthController extends Controller
         );
     }
 
+    public function actionGetEmails()
+    {
+    	if (isset($_GET['term']) && !empty($_GET['term']))
+    	{
+    		$sql="SELECT CONCAT(firstname, ' ', lastname) AS names, email FROM profile LEFT JOIN user ON user.id = profile.user_id ";
+    		$sql.= "WHERE auth_mode='ldap' AND CONCAT(firstname, ' ', lastname) LIKE '%".$_GET['term']."%'";
+			$connection=Yii::app()->db;
+			$command=$connection->createCommand($sql);
+			$results=$command->queryAll();
+			
+			if (count($results) > 0)
+			{
+				//$just_values = array();
+				
+				//foreach ($results as $k => $v)
+					//array_push($just_values, $v['names']);
+
+				echo json_encode($results);
+			} else
+				echo json_encode(array());
+    	} else
+    		echo json_encode(array());			
+    }
+    
     /**
      * Displays the login page
      */

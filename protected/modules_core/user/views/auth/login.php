@@ -1,3 +1,31 @@
+<script>
+  $(function() {
+    $( "#login_username" ).autocomplete({
+    	source: function (request, response) {
+        //    var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+            $.ajax({
+                url: "/intranet2/index.php?r=user/auth/getEmails",
+                dataType: "json",
+                data: {term: request.term},
+                method: 'get',
+                success: function (data) {
+                    response($.map(data, function(v,i){
+                        var names = v.names;
+                        var email = v.email;
+                        if (names && email) {
+                            return {
+                                    label: v.names,
+                                    value: v.email
+                                   };
+                        }
+                    }))
+                }
+            });
+        }
+    });
+  });
+</script>
+
 <?php
 /**
  * Login and registration page by AuthController
@@ -32,7 +60,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
             <p><?php echo Yii::t('UserModule.views_auth_login', "If you're already a member, please login with your username/email and password."); ?></p>
 
             <div class="form-group">
-                <?php echo $form->textField($model, 'username', array('class' => 'form-control', 'id' => 'login_username', 'placeholder' => Yii::t('UserModule.views_auth_login', 'username or email'))); ?>
+                <?php echo $form->textField($model, 'username', array('class' => 'form-control', 'autocomplete' => 'off', 'id' => 'login_username', 'placeholder' => Yii::t('UserModule.views_auth_login', 'username or email'))); ?>
                 <?php echo $form->error($model, 'username'); ?>
             </div>
 
