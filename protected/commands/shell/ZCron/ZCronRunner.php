@@ -81,11 +81,12 @@ class ZCronRunner extends HConsoleCommand {
                 HLdap::getInstance()->refreshUsers();
             }
 
+            /*
             print "- Invoking EMailing hourly\n\n";
             // Execute Hourly Mailing Runner
             Yii::import('application.commands.shell.EMailing.*');
             $command = new EMailing('test', 'test');
-            $command->run(array('hourly'));
+            $command->run(array('hourly'));*/
 
             HSetting::Set('cronLastHourlyRun', time());
         } elseif ($this->interval == self::INTERVAL_DAILY) {
@@ -94,11 +95,16 @@ class ZCronRunner extends HConsoleCommand {
             if ($this->hasEventHandler('onDailyRun'))
                 $this->onDailyRun(new CEvent($this));
 
+            if (HSetting::Get('enabled', 'authentication_ldap') && HSetting::Get('refreshUsers', 'authentication_ldap')) {
+            	print "- Updating LDAP Users\n";
+            	HLdap::getInstance()->refreshUsers();
+            }
+            
             // Execute Daily Mailing Runner
-            print "- Invoking EMailing daily\n\n";
+            /*print "- Invoking EMailing daily\n\n";
             Yii::import('application.commands.shell.EMailing.*');
             $command = new EMailing('test', 'test');
-            $command->run(array('daily'));
+            $command->run(array('daily'));*/
 
             HSetting::Set('cronLastDailyRun', time());
         }
