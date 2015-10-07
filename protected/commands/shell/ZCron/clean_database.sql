@@ -9,3 +9,5 @@ DELETE FROM intranet.user WHERE email IN ('uipc_tp@conabio.gob.mx', 'turnos_carb
 'bioacustica@conabio.gob.mx', 'soporte-si@conabio.gob.mx', 'recibo.nomina@conabio.gob.mx', 'coleccionesmx@conabio.gob.mx', 'timbrarcfdi@conabio.gob.mx',
 'ssinvasoras@conabio.gob.mx', 'salapbanexo@conabio.gob.mx', 'candelilla@conabio.gob.mx', 'foro_emcv@conabio.gob.mx', 'salagral@conabio.gob.mx',
 'redess@conabio.gob.mx', 'sssep@conabio.gob.mx', 'pspsb@conabio.gob.mx');
+
+UPDATE intranet.user SET status=1;
