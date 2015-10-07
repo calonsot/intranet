@@ -80,12 +80,12 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                 <div class="col-md-4">
                     <?php echo CHtml::submitButton(Yii::t('UserModule.views_auth_login', 'Sign in'), array('class' => 'btn btn-large btn-primary')); ?>
                 </div>
-                <div class="col-md-8 text-right">
+                <!-- div class="col-md-8 text-right">
                     <small>
-                        <?php echo Yii::t('UserModule.views_auth_login', 'Forgot your password?'); ?>
-                        <a href="<?php echo $this->createUrl('//user/auth/recoverPassword'); ?>"><br><?php echo Yii::t('UserModule.views_auth_login', 'Create a new one.') ?></a>
+                        <?php //echo Yii::t('UserModule.views_auth_login', 'Forgot your password?'); ?>
+                        <a href="<?php //echo $this->createUrl('//user/auth/recoverPassword'); ?>"><br><?php //echo Yii::t('UserModule.views_auth_login', 'Create a new one.') ?></a>
                     </small>
-                </div>
+                </div-->
             </div>
 
             <?php $this->endWidget(); ?>
