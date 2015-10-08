@@ -11,3 +11,5 @@ DELETE FROM intranet.user WHERE email IN ('uipc_tp@conabio.gob.mx', 'turnos_carb
 'redess@conabio.gob.mx', 'sssep@conabio.gob.mx', 'pspsb@conabio.gob.mx');
 
 UPDATE intranet.user SET status=1;
+
+DELETE FROM intranet_development.profile WHERE user_id NOT IN (SELECT id FROM intranet_development.user);
