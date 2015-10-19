@@ -45,7 +45,7 @@ class AuthController extends Controller
     	if (isset($_GET['term']) && !empty($_GET['term']))
     	{
     		$sql="SELECT CONCAT(firstname, ' ', lastname) AS names, email FROM profile LEFT JOIN user ON user.id = profile.user_id ";
-    		$sql.= "WHERE auth_mode='ldap' AND CONCAT(firstname, ' ', lastname) LIKE '%".$_GET['term']."%' ";
+    		$sql.= "WHERE auth_mode='ldap' AND (CONCAT(firstname, ' ', lastname) LIKE '%".$_GET['term']."%' OR email LIKE '%".$_GET['term']."%') ";
     		$sql.= "ORDER BY names LIMIT 10";
 			$connection=Yii::app()->db;
 			$command=$connection->createCommand($sql);

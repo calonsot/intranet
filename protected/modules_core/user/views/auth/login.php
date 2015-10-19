@@ -14,7 +14,7 @@
                         var email = v.email;
                         if (names && email) {
                             return {
-                                    label: v.names,
+                                    label: v.names + " (" + v.email + ")",
                                     value: v.email
                                    };
                         }
