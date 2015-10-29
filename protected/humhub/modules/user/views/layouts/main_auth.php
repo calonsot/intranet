@@ -82,9 +82,9 @@
 
         <?php echo HSetting::GetText('trackingHtmlCode'); ?>
 
-        <div class="text text-center powered">
+        <!-- div class="text text-center powered">
             Powered by <a href="http://www.humhub.org" target="_blank">HumHub</a>
-        </div>
+        </div-->
 
     </body>
 </html>

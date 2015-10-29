@@ -34,9 +34,9 @@
         <?php endif; ?>
     </div>
     <?php echo $content; ?>
-    <div class="text text-center animated fadeIn">
+    <!-- div class="text text-center animated fadeIn">
         Powered by <a href="http://www.humhub.org" target="_blank">HumHub</a>
-    </div>
+    </div-->
 </div>
 
 <div class="clear"></div>

@@ -40,11 +40,11 @@ AppAsset::register($this);
 
             <?php echo $content; ?>
 
-            <div class="text text-center powered">
+            <!-- div class="text text-center powered">
                 Powered by <a href="http://www.humhub.org" target="_blank">HumHub</a>
                 <br/>
                 <br/>
-            </div>
+            </div-->
         </div>
 
         <div class="clear"></div>
